@@ -1,104 +1,412 @@
-#科学插件调整
+# 科学插件调整
 CONFIG_PACKAGE_luci-app-homeproxy=y
-#增加插件
+CONFIG_PACKAGE_luci-app-openclash=y
+# 增加插件 设置路由器的定时自动重启
 CONFIG_PACKAGE_luci-app-autoreboot=y
-CONFIG_PACKAGE_luci-app-gecoosac=y
+
+# 集客无线AC控制器
+#CONFIG_PACKAGE_luci-app-gecoosac=y
+
+# 网络测速插件，支持内网网页测速（基于 homebox）、内网 iperf3 吞吐测试、外网 speedtest.net 测速（基于 speedtest-cli），以及特定服务器的端口延迟测试 
 CONFIG_PACKAGE_luci-app-netspeedtest=y
+
+# 分区扩容与挂载 （在自定义）
 CONFIG_PACKAGE_luci-app-partexp=y
+
+# samba4文件共享
 CONFIG_PACKAGE_luci-app-samba4=y
+
+# 虚拟组网tailscale
 CONFIG_PACKAGE_luci-app-tailscale=y
+
+# 通用即插即用（在自定义）
 CONFIG_PACKAGE_luci-app-upnp=y
+
+# 网络唤醒支持 Wake-on-LAN
 CONFIG_PACKAGE_luci-app-wolplus=y
-#删除插件
-CONFIG_PACKAGE_luci-app-attendedsysupgrade=n
+
+# 删除插件 --- 网络唤醒
 CONFIG_PACKAGE_luci-app-wol=n
-#参数调整
+
+# 参数调整
+# 启用 编译缓存工具 ccache
 CONFIG_CCACHE=y
+# 启用 开发模式（Development Mode）
 CONFIG_DEVEL=y
+# 启用 多设备配置文件（Multi-Profile）支持
 CONFIG_TARGET_MULTI_PROFILE=y
+# 启用 按设备生成独立根文件系统（Per-Device RootFS）
 CONFIG_TARGET_PER_DEVICE_ROOTFS=y
+# 禁用 INITRAMFS 根文件系统
 CONFIG_TARGET_ROOTFS_INITRAMFS=n
-#内核调整
+
+# =============内核调整=============== #
+# 网络接口绑定（也称为网卡绑定、链路聚合），它允许将多个物理网络接口组合成一个逻辑接口
 CONFIG_PACKAGE_kmod-bonding=y
+# 管理交换机芯片
 CONFIG_PACKAGE_kmod-dsa=y
+# 高性能文件系统
 CONFIG_PACKAGE_kmod-fs-btrfs=y
+# 支持用户空间文件系统（如 SSHFS）
 CONFIG_PACKAGE_kmod-fuse=y
+# 网络连接诊断（ss、netstat 依赖）
 CONFIG_PACKAGE_kmod-inet-diag=y
+# 系统可以通过相关工具（如 ss 或 mptcpctl）查询和诊断 MPTCP 连接的状态信息
 CONFIG_PACKAGE_kmod-inet-mptcp-diag=y
+# Flash 读写操作（调试/开发必需）
 CONFIG_PACKAGE_kmod-mtd-rw=y
+# 网络诊断接口（nftables、ip 工具依赖）
 CONFIG_PACKAGE_kmod-netlink-diag=y
+# nftables 防火墙将获得处理 ARP 协议的能力，允许管理员配置基于 ARP 数据包的过滤规则
 CONFIG_PACKAGE_kmod-nft-arp=y
+# 桥接接口的 nftables 规则支持
 CONFIG_PACKAGE_kmod-nft-bridge=y
+# 通过 nftables 配置规则，限制来自特定 IP 地址（或 IP 段）的并发连接数
 CONFIG_PACKAGE_kmod-nft-connlimit=y
+# nftables 防火墙核心模块（OpenWrt 默认）
 CONFIG_PACKAGE_kmod-nft-core=y
+# 管理员可以通过 nftables 配置规则，将经过防火墙的网络数据包复制并发送到指定的目标（如另一个 IP 地址或网络接口）
 CONFIG_PACKAGE_kmod-nft-dup-inet=y
+# 多路由策略支持（多 WAN 场景）
 CONFIG_PACKAGE_kmod-nft-fib=y
+# 高级 NAT 功能（P2P、穿透需求）
 CONFIG_PACKAGE_kmod-nft-fullcone=y
+# nftables 的 NAT 功能（替代 iptables）
 CONFIG_PACKAGE_kmod-nft-nat=y
+# 支持 netdev 接口的 nftables 规则
 CONFIG_PACKAGE_kmod-nft-netdev=y
+# 硬件卸载加速（需硬件支持）
 CONFIG_PACKAGE_kmod-nft-offload=y
+# 用户空间流量处理（如动态防火墙）
 CONFIG_PACKAGE_kmod-nft-queue=y
+# 连接状态匹配（优化防火墙策略）
 CONFIG_PACKAGE_kmod-nft-socket=y
+# 透明代理支持（无需 NAT 的代理场景）
 CONFIG_PACKAGE_kmod-nft-tproxy=y
+# nftables 防火墙可以与 XFRM 框架交互，实现对 IPsec 相关流量的精细化控制
 CONFIG_PACKAGE_kmod-nft-xfrm=y
+# 音频功能支持（无音频需求可禁用）
 CONFIG_PACKAGE_kmod-sound-core=y
+# 虚拟网络接口（OpenVPN/WireGuard 依赖）
 CONFIG_PACKAGE_kmod-tun=y
+# USB 3.0 高速支持（需硬件支持）
 CONFIG_PACKAGE_kmod-usb3=y
+# USB 音频设备支持（无需求可禁用）
 CONFIG_PACKAGE_kmod-usb-audio=y
+# USB 子系统基础模块（所有 USB 设备依赖）
 CONFIG_PACKAGE_kmod-usb-core=y
+# DesignWare USB 3.0 控制器驱动（需硬件匹配）
 CONFIG_PACKAGE_kmod-usb-dwc3=y
+# USB 网络设备支持（如 USB 网卡、3G/4G 模块）
 CONFIG_PACKAGE_kmod-usb-net=y
+# 启用 CDC EEM（Communications Device Class Ethernet Emulation Model） 支持。支持通过 USB 连接的 CDC EEM 设备，通常用于嵌入式系统和某些虚拟化环境。
 CONFIG_PACKAGE_kmod-usb-net-cdc-eem=y
+# 支持 USB 以太网适配器
 CONFIG_PACKAGE_kmod-usb-net-cdc-ether=y
+# 支持 MBIM 协议的 4G/5G 设备
 CONFIG_PACKAGE_kmod-usb-net-cdc-mbim=y
+# 支持 NCM 协议的高速网络接口
 CONFIG_PACKAGE_kmod-usb-net-cdc-ncm=y
+# 启用 CDC 子集 支持。作用：为旧版或不完全支持 CDC 标准的设备提供兼容性支持。
 CONFIG_PACKAGE_kmod-usb-net-cdc-subset=y
+# 启用 华为 CDC NCM 特定支持。作用：针对华为品牌的 4G/5G 调制解调器优化支持。
 CONFIG_PACKAGE_kmod-usb-net-huawei-cdc-ncm=y
+# 启用 iPod/iPhone 网络共享 支持。作用：允许通过 USB 连接 iPhone 实现网络共享。
 CONFIG_PACKAGE_kmod-usb-net-ipheth=y
+# 启用 QMI WWAN 支持。作用：支持通过 QMI 协议连接的 4G/5G 调制解调器。
 CONFIG_PACKAGE_kmod-usb-net-qmi-wwan=y
+# 功能：启用 Fibocom QMI WWAN 特定支持。作用：针对 Fibocom 品牌的 4G/5G 调制解调器优化支持。
 CONFIG_PACKAGE_kmod-usb-net-qmi-wwan-fibocom=y
+# 启用 Quectel QMI WWAN 特定支持。作用：针对 Quectel 品牌的 4G/5G 调制解调器优化支持。
 CONFIG_PACKAGE_kmod-usb-net-qmi-wwan-quectel=y
+# 支持 RNDIS 协议的网络共享。作用：支持 Windows Mobile 和其他 RNDIS 兼容设备的网络共享。
 CONFIG_PACKAGE_kmod-usb-net-rndis=y
+# 启用 Realtek RTL8150 USB 网卡支持
 CONFIG_PACKAGE_kmod-usb-net-rtl8150=y
+#　启用 Realtek RTL8152/RTL8153 USB 网卡支持。
 CONFIG_PACKAGE_kmod-usb-net-rtl8152=y
+#　启用 OHCI（Open Host Controller Interface） 支持。作用：支持较老版本的 USB 1.1 主机控制器。
 CONFIG_PACKAGE_kmod-usb-ohci=y
+#　支持 USB 存储设备
 CONFIG_PACKAGE_kmod-usb-storage=y
+#　启用 额外的 USB 存储驱动。作用：支持更多类型的 USB 存储设备。
 CONFIG_PACKAGE_kmod-usb-storage-extras=y
+# 启用 UAS（USB Attached SCSI） 支持。作用：提高 USB 3.0 存储设备的性能。
 CONFIG_PACKAGE_kmod-usb-storage-uas=y
+# 启用 UHCI（Universal Host Controller Interface） 支持。作用：支持较老版本的 USB 1.1 主机控制器。
 CONFIG_PACKAGE_kmod-usb-uhci=y
+# 支持 USB 3.0 及以上版本
 CONFIG_PACKAGE_kmod-usb-xhci=y
-CONFIG_PACKAGE_kmod-veth=y
+# 支持 WireGuard VPN
 CONFIG_PACKAGE_kmod-wireguard=y
-#组件调整
+# 支持基于 MHI（Multi-Host Interface）总线的 WWAN（Wireless Wide Area Network，无线广域网）设备
+CONFIG_PACKAGE_kmod-mhi-wwan=n
+
+# =================组件调整======================= #
+# 功能：提供 OpenWrt 核心自动化脚本（如设备信息检测、系统初始化）。作用：确保系统基础功能正常运行（如自动检测硬件信息）。
 CONFIG_PACKAGE_autocore=y
+# 自动检测设备并分配挂载点
 CONFIG_PACKAGE_automount=y
+# 识别块设备的 UUID 和文件系统类型。作用：用于挂载点配置（如通过 UUID 挂载硬盘）。
 CONFIG_PACKAGE_blkid=y
+# 交互式磁盘分区工具，基于文本界面（类似 DOS 的 fdisk）。支持 MBR（Master Boot Record） 分区表，适用于传统硬盘（容量小于 2TB）
 CONFIG_PACKAGE_cfdisk=y
+# cgdisk 是 cfdisk 的 GPT（GUID Partition Table）版本，支持 大容量磁盘（>2TB）。
 CONFIG_PACKAGE_cgdisk=y
+# 运行 CoreMark 基准测试工具。作用：评估 CPU 性能（常用于性能对比测试）。
 CONFIG_PACKAGE_coremark=y
+# 提供 CPU 频率调整工具（如 cpufreq-set）。作用：动态调整 CPU 频率以优化功耗或性能。
 CONFIG_PACKAGE_cpufreq=y
-CONFIG_PACKAGE_curl=y
+# 查看内核环形缓冲区日志（系统启动/硬件事件记录）。作用：排查硬件问题或内核错误（如 USB 设备识别失败）。
 CONFIG_PACKAGE_dmesg=y
+# 磁盘分区工具（MBR/GPT 分区表管理）。作用：创建/删除分区（如扩容硬盘）。
 CONFIG_PACKAGE_fdisk=y
+# GPT 分区表管理工具（支持大容量磁盘）。作用：管理 GPT 分区（如 NVMe SSD）。
 CONFIG_PACKAGE_gdisk=y
+# 交互式进程监控工具（比 top 更直观）。作用：实时查看系统资源占用（如 CPU、内存）。
 CONFIG_PACKAGE_htop=y
+# 网络带宽测试工具。作用：测量网络吞吐量（如 WAN/LAN 速度测试）。
 CONFIG_PACKAGE_iperf3=y
+# 完整的 ip 命令工具集（比 iproute2 更强大）。作用：管理网络接口、路由表、ARP 等。
 CONFIG_PACKAGE_ip-full=y
+# iOS 设备通信库（支持 iPhone 文件传输）。作用：通过 USB 管理 iPhone（如备份文件）。
 CONFIG_PACKAGE_libimobiledevice=y
+# 列出块设备信息（如分区结构、挂载点）。作用：快速查看存储设备状态。
 CONFIG_PACKAGE_lsblk=y
+# LuCI Web 界面基础模块。作用：提供 OpenWrt 的图形化管理界面。
 CONFIG_PACKAGE_luci-base=y
+# 兼容旧版 LuCI 配置的模块。作用：支持旧版 LuCI 插件或配置。
 CONFIG_PACKAGE_luci-compat=y
+# LuCI 基础库（如模板引擎、API 支持）。作用：LuCI 插件依赖的基础库。
 CONFIG_PACKAGE_luci-lib-base=y
+# LuCI 的 opkg 包管理支持。作用：通过 Web 界面安装/卸载软件包。
 CONFIG_PACKAGE_luci-lib-ipkg=y
+# Lua 运行时环境（LuCI 依赖）。作用：支持 LuCI 插件的 Lua 脚本执行。
 CONFIG_PACKAGE_luci-lua-runtime=y
+# LuCI 界面的网络接口绑定支持（如链路聚合）。作用：通过 Web 界面配置多网卡聚合。
+CONFIG_PACKAGE_luci-proto-bonding=y
+# LuCI 界面的网络中继支持（如桥接、VLAN）。作用：通过 Web 界面配置网络中继。
 CONFIG_PACKAGE_luci-proto-relay=y
+# 管理 MMC/eMMC 存储设备（如 SD 卡、嵌入式闪存）。作用：读取/写入 MMC 设备信息（如恢复固件）。
 CONFIG_PACKAGE_mmc-utils=y
+# NAND 闪存管理工具（如擦除、读写操作）。作用：直接操作 NAND 闪存（如修复损坏分区）。
 CONFIG_PACKAGE_nand-utils=y
+# 生成 SSH 密钥对（如 RSA、ECDSA）。作用：支持 SSH 无密码登录或加密通信。
 CONFIG_PACKAGE_openssh-keygen=y
+# 启用 SFTP 服务器功能。作用：通过 SSH 传输文件（比 FTP 更安全）。
 CONFIG_PACKAGE_openssh-sftp-server=y
+# 提供 OpenSSL 工具（如证书生成、加密操作）。作用：支持 TLS/SSL 相关操作（如 HTTPS、VPN）。
 CONFIG_PACKAGE_openssl-util=y
+# 用于启用与网络接口绑定（bonding）相关的协议支持包。
 CONFIG_PACKAGE_proto-bonding=y
+# 脚本化磁盘分区工具（适合自动化操作）。作用：批量分区或备份分区表。
 CONFIG_PACKAGE_sfdisk=y
+# GPT 分区的脚本化工具（支持大容量磁盘）。作用：自动化 GPT 分区管理（如 NAS 扩容）。
 CONFIG_PACKAGE_sgdisk=y
-CONFIG_PACKAGE_usbmuxd=y
+# 功能：USBmuxd 守护进程（iOS 设备通信基础）。作用：支持 iPhone USB 通信（依赖 libimobiledevice）。 
+#CONFIG_PACKAGE_usbmuxd=y
+# USB 设备管理工具（如 lsusb）。作用：查看连接的 USB 设备信息。
 CONFIG_PACKAGE_usbutils=y
+
+#-----------------以下自行增加的插件及组件-----------------#
+# zram-swap内存压缩
+CONFIG_PACKAGE_kmod-zram=y
+CONFIG_PACKAGE_zram-swap=y
+
+# 依赖插件及组件
+CONFIG_PACKAGE_fuse-utils=y
+CONFIG_PACKAGE_fuse3-utils=y
+CONFIG_PACKAGE_libfuse1=y
+CONFIG_PACKAGE_libfuse3-3=y
+
+# 动态域名解析
+#CONFIG_PACKAGE_luci-app-ddns=y
+CONFIG_PACKAGE_luci-app-ddns-go=n
+
+# 微力同步
+CONFIG_PACKAGE_verysync=n
+CONFIG_PACKAGE_luci-app-verysync=n
+
+#补全linux系统管理指令
+CONFIG_PACKAGE_sudo=y
+
+# DDNS依赖
+CONFIG_PACKAGE_drill=y
+
+# luci-app-openvpn-server服务器
+#CONFIG_PACKAGE_openvpn-easy-rsa=y
+#CONFIG_PACKAGE_openssl-util=y
+#CONFIG_PACKAGE_openvpn-openssl=y
+#CONFIG_PACKAGE_libcap-ng=y
+#CONFIG_PACKAGE_liblz4-1=y
+#CONFIG_PACKAGE_liblzo2=y
+CONFIG_PACKAGE_luci-app-openvpn-server=y
+
+# FTP服务器
+CONFIG_PACKAGE_luci-app-vsftpd=y
+
+# 微信通知推送
+CONFIG_PACKAGE_luci-app-wechatpush=y
+
+# IPTV组播转换
+CONFIG_PACKAGE_luci-app-msd_lite=y
+
+# IPTV组播代理
+CONFIG_PACKAGE_luci-app-omcproxy=y
+
+# web服务器
+CONFIG_PACKAGE_luci-app-uhttpd=y
+
+# 网页版终端命令行
+CONFIG_PACKAGE_luci-app-ttyd=y
+
+# 全能推送PushBot
+CONFIG_PACKAGE_luci-app-pushbot=y
+
+# 关机poweroff
+CONFIG_PACKAGE_luci-app-poweroff=y
+
+# 分区扩容
+CONFIG_PACKAGE_luci-app-partexp=y
+
+# 主题界面edge
+CONFIG_PACKAGE_luci-theme-edge=y
+
+# 文件浏览器filebrowser-go
+CONFIG_PACKAGE_luci-app-filebrowser-go=y
+
+# 多端网盘挂载alist
+#CONFIG_PACKAGE_luci-app-alist=y
+#CONFIG_PACKAGE_luci-app-openlist=y
+CONFIG_PACKAGE_luci-app-openlist2=y
+
+# php8
+CONFIG_PACKAGE_php8=y
+CONFIG_PACKAGE_php8-cgi=y
+CONFIG_PACKAGE_php8-mod-curl=y
+
+# Wi-Fi定时开关
+CONFIG_PACKAGE_luci-app-wifischedule=y
+
+# 阿里云盘webdav
+#CONFIG_PACKAGE_luci-app-aliyundrive-webdav=y
+
+# docker
+CONFIG_PACKAGE_luci-app-dockerman=y
+
+# KMS服务器
+#CONFIG_PACKAGE_luci-app-vlmcsd=y
+
+# ZeroTier内网穿透
+CONFIG_PACKAGE_luci-app-zerotier=y
+
+# 访问时间控制
+#CONFIG_PACKAGE_luci-app-accesscontrol=y
+
+# 通用即插即用UPnP（端口自动转发）
+CONFIG_PACKAGE_luci-app-upnp=y
+
+# 提供网络设备的自动重启和断网检测功能
+CONFIG_PACKAGE_luci-app-watchcat=y
+
+# 内核级文件共享
+CONFIG_PACKAGE_luci-app-ksmbd=m
+
+# argon主题配置
+#CONFIG_PACKAGE_luci-app-argon-config=y
+
+# 端口转发socat
+#CONFIG_PACKAGE_socat=y
+#CONFIG_PACKAGE_luci-app-socat=y
+
+# 磁盘管理-diskman
+CONFIG_PACKAGE_luci-app-diskman=y
+
+# timecontrol 上网时间控制插件 - 自适应FW3/FW4防火墙，支持IPv4/IPv6。改自Lienol原版luci-app-timecontrol FW3版本
+#CONFIG_PACKAGE_luci-app-timecontrol=y
+
+# timecontrol 上网时间控制插件 - 上网时间控制NFT版2.0.2版==专门针对24.10分支，适配NFT的上网时间控制插件。
+CONFIG_PACKAGE_luci-app-nft-timecontrol=y
+
+# luci-app-taskplan 任务设置2.0版
+CONFIG_PACKAGE_luci-app-taskplan=y
+
+#-----------以上为自行增加的插件及组件-------------#
+
+#-------------------2025.04.12-测试-----------------#
+
+# clouddrive2云盘挂载
+#CONFIG_PACKAGE_luci-app-clouddrive2=y
+
+# istore增强
+CONFIG_PACKAGE_istoreenhance=n
+CONFIG_PACKAGE_luci-app-istoreenhance=n
+
+# 易有云文件管理器
+CONFIG_PACKAGE_linkmount=y
+CONFIG_PACKAGE_linkease=y
+CONFIG_PACKAGE_luci-app-linkease=y
+
+# 快速设置
+CONFIG_PACKAGE_quickstart=y
+CONFIG_PACKAGE_luci-app-quickstart=y
+
+# istore商店
+CONFIG_PACKAGE_luci-app-store=y
+
+# 通用共享
+CONFIG_PACKAGE_samba4-server=y
+CONFIG_PACKAGE_webdav2=y
+CONFIG_PACKAGE_unishare=y
+CONFIG_PACKAGE_luci-app-unishare=y
+
+# kms vlmcsd服务器
+CONFIG_PACKAGE_openssl=y
+CONFIG_PACKAGE_libopenssl=y
+CONFIG_PACKAGE_libcrypto=y
+CONFIG_PACKAGE_vlmcsd=y
+CONFIG_PACKAGE_luci-app-vlmcsd=y
+
+# sunpanel NAS导航面板
+CONFIG_PACKAGE_sunpanel=n
+CONFIG_PACKAGE_luci-app-sunpanel=n
+
+# memos 随手记
+CONFIG_PACKAGE_luci-app-memos=n
+
+# 主题界面luci-theme-kucat
+CONFIG_PACKAGE_luci-theme-kucat=y
+CONFIG_PACKAGE_luci-app-kucat=y
+
+# luci-app-advancedplus 新版进价设置，集成酷猫主题，可以编译保存系统、网络、防火墙、DHCP、家长控制、网络唤醒、端口转发、DDNS-GO、SMARTDNS、BYPASS、OPENCLASH、NGINX、DNSMASQ、DDNS等10多个常用功能的配置文件。
+CONFIG_PACKAGE_luci-app-advancedplus=n
+
+# quickfile 文件管理器
+#CONFIG_PACKAGE_luci-app-quickfile=y
+
+#-------------------2025.07.07-测试-----------------#
+
+# ------------显式禁用所有 NTFS 驱动------------2025.07.10------------#
+CONFIG_PACKAGE_ntfs-3g=n
+CONFIG_PACKAGE_ntfs3-mount=n
+
+# 内核级驱动，性能高	功能较少（如不支持加密/压缩）	需要高性能读写 NTFS------------2025.07.10------------#
+CONFIG_PACKAGE_kmod-fs-ntfs3=y
+
+#-------------------2025.07.07-测试-----------------#
+#-------------------2025.11.16-删除插件-------------#
+CONFIG_PACKAGE_luci-app-attendedsysupgrade=n
+# 应用过滤----2025.10.20---- #
+CONFIG_PACKAGE_luci-app-oaf=y
+CONFIG_PACKAGE_oaf=y
+CONFIG_PACKAGE_open-app-filter=y
+ 
+ 
+CONFIG_PACKAGE_luci-app-mosdns=y
+CONFIG_PACKAGE_adguardhome=y
+CONFIG_PACKAGE_luci-app-adguardhome=y
+CONFIG_PACKAGE_easytier=y
+CONFIG_PACKAGE_luci-app-easytier=y
+CONFIG_PACKAGE_qbittorrent=y
+CONFIG_PACKAGE_ffmpeg=y
+CONFIG_PACKAGE_luci-app-aqbittorrent=y
