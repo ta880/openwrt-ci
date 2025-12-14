@@ -5,10 +5,9 @@ CONFIG_PACKAGE_luci-app-openclash=y
 CONFIG_PACKAGE_luci-app-autoreboot=y
 
 # 集客无线AC控制器
-CONFIG_PACKAGE_luci-app-gecoosac=y
+CONFIG_PACKAGE_luci-app-gecoosac=n
 
-# 网络测速插件，支持内网网页测速（基于 homebox）、内网 iperf3 吞吐测试、外网 speedtest.net 测速（基于 speedtest-cli），以及特定服务器的端口延迟测试 
-CONFIG_PACKAGE_luci-app-netspeedtest=y
+
 
 # 分区扩容与挂载 （在自定义）
 CONFIG_PACKAGE_luci-app-partexp=y
