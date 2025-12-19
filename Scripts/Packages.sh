@@ -179,17 +179,7 @@ UPDATE_PACKAGE "luci-app-taskplan" "sirpdboy/luci-app-taskplan" "master"
 #------------------以上自定义源--------------------#
 
 
-#-------------------2025.04.12-测试-----------------#
-#UPDATE_PACKAGE "luci-app-clouddrive2" "shidahuilang/openwrt-package" "Immortalwrt" "pkg"
-
-# istore增强
-UPDATE_PACKAGE "istoreenhance" "shidahuilang/openwrt-package" "Immortalwrt" "pkg"
-UPDATE_PACKAGE "luci-app-istoreenhance" "shidahuilang/openwrt-package" "Immortalwrt" "pkg"
-
-# 易有云文件管理器
-UPDATE_PACKAGE "linkmount" "shidahuilang/openwrt-package" "Immortalwrt" "pkg"
-UPDATE_PACKAGE "linkease" "shidahuilang/openwrt-package" "Immortalwrt" "pkg"
-UPDATE_PACKAGE "luci-app-linkease" "shidahuilang/openwrt-package" "Immortalwrt" "pkg"
+#---------------
 
 # istore首页及网络向导
 UPDATE_PACKAGE "quickstart" "shidahuilang/openwrt-package" "Immortalwrt" "pkg"
@@ -197,8 +187,7 @@ UPDATE_PACKAGE "luci-app-quickstart" "shidahuilang/openwrt-package" "Immortalwrt
 #UPDATE_PACKAGE "quickstart" "master-yun-yun/package-istore" "Immortalwrt" "pkg"
 #UPDATE_PACKAGE "luci-app-quickstart" "master-yun-yun/package-istore" "Immortalwrt" "pkg"
 
-# istore商店
-UPDATE_PACKAGE "luci-app-store" "shidahuilang/openwrt-package" "Immortalwrt" "pkg"
+
 
 # 统一文件共享
 UPDATE_PACKAGE "webdav2" "shidahuilang/openwrt-package" "Immortalwrt" "pkg"
@@ -215,12 +204,6 @@ UPDATE_PACKAGE "luci-app-verysync" "kiddin9/kwrt-packages" "main" "pkg"
 UPDATE_PACKAGE "vlmcsd" "shidahuilang/openwrt-package" "Immortalwrt" "pkg"
 UPDATE_PACKAGE "luci-app-vlmcsd" "shidahuilang/openwrt-package" "Immortalwrt" "pkg"
 
-# SunPanel导航页
-UPDATE_PACKAGE "sunpanel" "kiddin9/kwrt-packages" "main" "pkg"
-UPDATE_PACKAGE "luci-app-sunpanel" "kiddin9/kwrt-packages" "main" "pkg"
-
-# Memos知识管理
-UPDATE_PACKAGE "luci-app-memos" "kiddin9/kwrt-packages" "main" "pkg"
 
 # quectel-CM-5G
 UPDATE_PACKAGE "quectel-CM-5G" "kiddin9/kwrt-packages" "main" "pkg"
@@ -232,8 +215,7 @@ UPDATE_PACKAGE "open-app-filter" "kenzok8/small-package" "main" "pkg"
 UPDATE_PACKAGE "luci-app-oaf" "kenzok8/small-package" "main" "pkg"
 
 
-# 原高级设置升级版本
-UPDATE_PACKAGE "luci-app-advancedplus" "sirpdboy/luci-app-advancedplus" "main"
+
 
 # luci-app-athena-led-雅典娜led屏幕显示（第一个源显示效果不好）
 #UPDATE_PACKAGE "luci-app-athena-led" "haipengno1/luci-app-athena-led" "main"
