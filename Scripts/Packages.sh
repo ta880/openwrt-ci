@@ -214,6 +214,8 @@ UPDATE_PACKAGE "oaf" "kenzok8/small-package" "main" "pkg"
 UPDATE_PACKAGE "open-app-filter" "kenzok8/small-package" "main" "pkg"
 UPDATE_PACKAGE "luci-app-oaf" "kenzok8/small-package" "main" "pkg"
 
+UPDATE_PACKAGE "luci-app-store" "shidahuilang/openwrt-package" "Immortalwrt" "pkg"
+
 
 
 
