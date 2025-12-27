@@ -213,7 +213,6 @@ CONFIG_PACKAGE_luci-app-openlist2=y
 CONFIG_PACKAGE_luci-app-dockerman=y
 
 
-CONFIG_PACKAGE_luci-app-diskman=y
 
 
 # 通用即插即用UPnP（端口自动转发）
