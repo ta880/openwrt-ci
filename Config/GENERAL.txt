@@ -143,8 +143,6 @@ CONFIG_PACKAGE_luci-base=y
 CONFIG_PACKAGE_luci-compat=y
 # LuCI 基础库（如模板引擎、API 支持）。作用：LuCI 插件依赖的基础库。
 CONFIG_PACKAGE_luci-lib-base=y
-# LuCI 的 opkg 包管理支持。作用：通过 Web 界面安装/卸载软件包。
-CONFIG_PACKAGE_luci-lib-ipkg=y
 # Lua 运行时环境（LuCI 依赖）。作用：支持 LuCI 插件的 Lua 脚本执行。
 CONFIG_PACKAGE_luci-lua-runtime=y
 # LuCI 界面的网络接口绑定支持（如链路聚合）。作用：通过 Web 界面配置多网卡聚合。
