@@ -223,10 +223,3 @@ UPDATE_PACKAGE "luci-app-store" "shidahuilang/openwrt-package" "Immortalwrt" "pk
 #UPDATE_PACKAGE "luci-app-athena-led" "haipengno1/luci-app-athena-led" "main"
 UPDATE_PACKAGE "luci-app-athena-led" "NONGFAH/luci-app-athena-led" "main"
 #-------------------2025.04.12-测试-----------------#
-# 添加雅典娜LED执行权限
-if [ -d "luci-app-athena-led" ]; then
-    chmod +x luci-app-athena-led/root/etc/init.d/athena_led
-    chmod +x luci-app-athena-led/root/usr/sbin/athena-led
-    echo "Added execute permissions for athena_led files."
-fi
-#-------------------2025.05.31-测试-----------------#
