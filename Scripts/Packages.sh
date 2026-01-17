@@ -212,14 +212,7 @@ UPDATE_PACKAGE "luci-app-verysync" "kiddin9/kwrt-packages" "main" "pkg"
 #UPDATE_PACKAGE "vlmcsd" "kiddin9/kwrt-packages" "main" "pkg"
 #UPDATE_PACKAGE "luci-app-vlmcsd" "kiddin9/kwrt-packages" "main" "pkg"
 UPDATE_PACKAGE "vlmcsd" "shidahuilang/openwrt-package" "Immortalwrt" "pkg"
-UPDATE_PACKAGE "luci-app-vlmcsd" "shidahuilang/openwrt-package" "Immortalwrt" "pkg"
-
-# SunPanel导航页
-UPDATE_PACKAGE "sunpanel" "kiddin9/kwrt-packages" "main" "pkg"
-UPDATE_PACKAGE "luci-app-sunpanel" "kiddin9/kwrt-packages" "main" "pkg"
-
-# Memos知识管理
-UPDATE_PACKAGE "luci-app-memos" "kiddin9/kwrt-packages" "main" "pkg"
+UPDATE_PACKAGE "luci-app-vlmcsd" "shidahuilang/openwrt-package" "Immortalwrt"
 
 # quectel-CM-5G
 UPDATE_PACKAGE "quectel-CM-5G" "kiddin9/kwrt-packages" "main" "pkg"
