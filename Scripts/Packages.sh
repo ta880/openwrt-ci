@@ -83,7 +83,7 @@ UPDATE_PACKAGE "mosdns" "sbwml/luci-app-mosdns" "v5" "" "v2dat"
 UPDATE_PACKAGE "quickfile" "sbwml/luci-app-quickfile" "main"
 UPDATE_PACKAGE "viking" "VIKINGYFY/packages" "main" "" "luci-app-timewol luci-app-wolplus"
 UPDATE_PACKAGE "vnt" "lmq8267/luci-app-vnt" "main"
-
+UPDATE_PACKAGE "luci-app-adguardhome" "sirpdboy/luci-app-adguardhome" "main" 
 UPDATE_PACKAGE "diskman" "lisaac/luci-app-diskman" "master"
 
 #更新软件包版本
@@ -132,7 +132,7 @@ UPDATE_VERSION "sing-box"
 UPDATE_VERSION "tailscale"
 
 #------------------以下自定义源--------------------#
-UPDATE_PACKAGE "luci-app-adguardhome" "sirpdboy/luci-app-adguardhome" "main" "pkg"
+
 # 全能推送PushBot----OK
 UPDATE_PACKAGE "luci-app-pushbot" "zzsj0928/luci-app-pushbot" "master"
 
