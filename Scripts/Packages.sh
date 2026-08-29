@@ -56,7 +56,7 @@ UPDATE_PACKAGE() {
 
 # UPDATE_PACKAGE "包名" "项目地址" "项目分支" "pkg/name，可选，pkg为从大杂烩中单独提取包名插件；name为重命名为包名"
 #UPDATE_PACKAGE "argon" "sbwml/luci-theme-argon" "openwrt-24.10"
-UPDATE_PACKAGE "luci-theme-argon" "kiddin9/kwrt-packages" "main" "pkg"
+UPDATE_PACKAGE "luci-theme-argon" "kiddin9/op-packages" "main" "pkg"
 UPDATE_PACKAGE "theme-kucat" "sirpdboy/luci-theme-kucat" "master"
 UPDATE_PACKAGE "aurora" "eamonxg/luci-theme-aurora" "master"
 
@@ -207,18 +207,18 @@ UPDATE_PACKAGE "unishare" "shidahuilang/openwrt-package" "Immortalwrt" "pkg"
 UPDATE_PACKAGE "luci-app-unishare" "shidahuilang/openwrt-package" "Immortalwrt" "pkg"
 
 # 微力同步
-UPDATE_PACKAGE "verysync" "kiddin9/kwrt-packages" "main" "pkg"
-UPDATE_PACKAGE "luci-app-verysync" "kiddin9/kwrt-packages" "main" "pkg"
+UPDATE_PACKAGE "verysync" "kiddin9/op-packages" "main" "pkg"
+UPDATE_PACKAGE "luci-app-verysync" "kiddin9/op-packages" "main" "pkg"
 
 # Vlmcsd KMS 服务器
-#UPDATE_PACKAGE "vlmcsd" "kiddin9/kwrt-packages" "main" "pkg"
-#UPDATE_PACKAGE "luci-app-vlmcsd" "kiddin9/kwrt-packages" "main" "pkg"
+#UPDATE_PACKAGE "vlmcsd" "kiddin9/op-packages" "main" "pkg"
+#UPDATE_PACKAGE "luci-app-vlmcsd" "kiddin9/op-packages" "main" "pkg"
 UPDATE_PACKAGE "vlmcsd" "shidahuilang/openwrt-package" "Immortalwrt" "pkg"
 UPDATE_PACKAGE "luci-app-vlmcsd" "shidahuilang/openwrt-package" "Immortalwrt"
 
 # quectel-CM-5G
-UPDATE_PACKAGE "quectel-CM-5G" "kiddin9/kwrt-packages" "main" "pkg"
-UPDATE_PACKAGE "quectel_cm_5G" "kiddin9/kwrt-packages" "main" "pkg"
+UPDATE_PACKAGE "quectel-CM-5G" "kiddin9/op-packages" "main" "pkg"
+UPDATE_PACKAGE "quectel_cm_5G" "kiddin9/op-packages" "main" "pkg"
 
 
 UPDATE_PACKAGE "oaf" "kenzok8/small-package" "main" "pkg"
