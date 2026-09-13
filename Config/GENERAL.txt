@@ -258,28 +258,6 @@ CONFIG_PACKAGE_ffmpeg=y
 CONFIG_PACKAGE_luci-app-aqbittorrent=y
 
 
-# ===== Daed 编译工具链 =====
-CONFIG_DEVEL=y
-CONFIG_BPF_TOOLCHAIN_HOST=y
-# CONFIG_BPF_TOOLCHAIN_NONE is not set
 
-# ===== 内核 eBPF 功能支持 =====
-CONFIG_KERNEL_BPF_EVENTS=y
-CONFIG_KERNEL_CGROUP_BPF=y
-CONFIG_KERNEL_DEBUG_INFO=y
-CONFIG_KERNEL_DEBUG_INFO_BTF=y
-# CONFIG_KERNEL_DEBUG_INFO_REDUCED is not set
-CONFIG_KERNEL_XDP_SOCKETS=y
-
-# ===== Daed 运行时内核模块 =====
-CONFIG_PACKAGE_kmod-sched-core=y
-CONFIG_PACKAGE_kmod-sched-bpf=y
-CONFIG_PACKAGE_kmod-xdp-sockets-diag=y
-CONFIG_PACKAGE_kmod-veth=y
-
-# ===== 相关网络支持模块（建议） =====
-CONFIG_PACKAGE_kmod-nft-core=y
-CONFIG_PACKAGE_kmod-nft-tproxy=y
-CONFIG_PACKAGE_kmod-nft-fullcone=y
 
 
